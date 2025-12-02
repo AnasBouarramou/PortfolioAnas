@@ -19,15 +19,19 @@
   padding: 0;
 }
 
+
 .hero__title-line {
   display: block;
-  font-size: clamp(3rem, 11vw, 12rem);
+  font-size: clamp(2rem, 11vw, 12rem);
   white-space: nowrap;
   margin: 0;
   padding: 0;
   line-height: 1;
   letter-spacing: -0.02em;
+  width: 100%;
+  text-overflow: clip;
 }
+
 
 .hero__title-line--outline {
   color: transparent;
