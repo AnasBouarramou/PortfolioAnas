@@ -115,7 +115,6 @@
     border-color: var(--accent);
   }
 }
-
 /* === HEADER / NAV === */
 .header {
   position: fixed;
@@ -128,6 +127,7 @@
   align-items: center;
   z-index: var(--z-nav);
   mix-blend-mode: difference;
+  pointer-events: none; /* Laisse passer les clics sauf sur les éléments interactifs */
 }
 
 .header__logo {
@@ -135,12 +135,14 @@
   font-weight: 700;
   letter-spacing: -1px;
   font-size: 1.1rem;
+  pointer-events: auto; /* Réactive les clics sur le logo */
 }
 
 .header__right {
   display: flex;
   align-items: center;
   gap: var(--space-lg);
+  pointer-events: auto; /* Réactive les clics sur les boutons */
 }
 
 /* === LANGUAGE SWITCHER === */

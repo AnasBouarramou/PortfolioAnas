@@ -39,6 +39,29 @@ export const translations = {
       description:
         "Anas Bouarramou - Creative Developer specializing in modern web and mobile experiences. Portfolio showcasing development projects and technical expertise.",
     },
+    label_approach: "02 / MY APPROACH",
+    approaches: [
+      {
+        title: "Listening",
+        description:
+          "I take the time to understand your vision, your needs and your goals before writing a single line of code.",
+      },
+      {
+        title: "Analysis",
+        description:
+          "Every project starts with a thorough analysis to find the best technical and creative solutions.",
+      },
+      {
+        title: "Creativity",
+        description:
+          "I design unique experiences that stand out while remaining intuitive and accessible.",
+      },
+      {
+        title: "Flexibility",
+        description:
+          "Open to all types of projects, I adapt to your constraints and your workflow.",
+      },
+    ],
   },
   fr: {
     status: "DISPONIBLE",
@@ -75,6 +98,29 @@ export const translations = {
       description:
         "Anas Bouarramou - Développeur créatif spécialisé dans les expériences web modernes. Portfolio présentant des projets de développement et une expertise technique.",
     },
+    label_approach: "02 / MON APPROCHE",
+    approaches: [
+      {
+        title: "Écoute",
+        description:
+          "Je prends le temps de comprendre votre vision, vos besoins et vos objectifs avant d'écrire une seule ligne de code.",
+      },
+      {
+        title: "Analyse",
+        description:
+          "Chaque projet commence par une analyse approfondie pour trouver les meilleures solutions techniques et créatives.",
+      },
+      {
+        title: "Créativité",
+        description:
+          "Je conçois des expériences uniques qui se démarquent tout en restant intuitives et accessibles.",
+      },
+      {
+        title: "Flexibilité",
+        description:
+          "Ouvert à tous types de projets, je m'adapte à vos contraintes et à votre workflow.",
+      },
+    ],
   },
 };
 

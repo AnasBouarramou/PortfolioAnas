@@ -3,11 +3,11 @@
 // Section projets avec hover image
 // ============================================
 
-import { memo, useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../../lib/i18n';
-import { projects } from '../../data/content';
-import { icons } from '../ui/Icons';
-import { cn } from '../../lib/utils';
+import { memo, useState, useEffect, useRef } from "react";
+import { useLanguage } from "../../lib/i18n";
+import { projects } from "../../data/content";
+import { icons } from "../ui/Icons";
+import { cn } from "../../lib/utils";
 
 const ProjectItem = memo(function ProjectItem({
   project,
@@ -36,13 +36,17 @@ const ProjectItem = memo(function ProjectItem({
     >
       <div className="projects__name">{project.name}</div>
       <div className="projects__role">{t(project.role)}</div>
-      <div className="projects__role">{project.year}</div>
+      <div className="projects__year">{project.year}</div>
       <div className="projects__arrow">{icons.arrow}</div>
     </a>
   );
 });
 
-export const Projects = memo(function Projects({ onHoverEnter, onHoverLeave, cursorPos }) {
+export const Projects = memo(function Projects({
+  onHoverEnter,
+  onHoverLeave,
+  cursorPos,
+}) {
   const { t } = useLanguage();
   const [activeImage, setActiveImage] = useState(null);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
@@ -66,7 +70,7 @@ export const Projects = memo(function Projects({ onHoverEnter, onHoverLeave, cur
           }
         });
       },
-      { rootMargin: '200px' }
+      { rootMargin: "200px" }
     );
 
     observer.observe(sectionRef.current);
@@ -95,10 +99,14 @@ export const Projects = memo(function Projects({ onHoverEnter, onHoverLeave, cur
   };
 
   return (
-    <section ref={sectionRef} className="section-padding" aria-labelledby="projects-heading">
+    <section
+      ref={sectionRef}
+      className="section-padding"
+      aria-labelledby="projects-heading"
+    >
       <div className="container">
         <h2 className="label" id="projects-heading">
-          {t('label_projects')}
+          {t("label_projects")}
         </h2>
 
         <div className="projects__list">
@@ -117,8 +125,11 @@ export const Projects = memo(function Projects({ onHoverEnter, onHoverLeave, cur
       {/* Hover Image */}
       <img
         ref={imageRef}
-        src={activeImage || ''}
-        className={cn('projects__hover-image', activeImage && 'projects__hover-image--active')}
+        src={activeImage || ""}
+        className={cn(
+          "projects__hover-image",
+          activeImage && "projects__hover-image--active"
+        )}
         alt=""
         aria-hidden="true"
         loading="lazy"

@@ -3,8 +3,8 @@
 // Assemblage de la page d'accueil
 // ============================================
 
-import { LanguageProvider } from './lib/i18n';
-import { useCursor } from './hooks';
+import { LanguageProvider } from "./lib/i18n";
+import { useCursor } from "./hooks";
 import {
   Layout,
   Background,
@@ -12,15 +12,16 @@ import {
   Header,
   Hero,
   Expertise,
+  Approach, // Nouveau
   Projects,
   Contact,
   Footer,
-} from './components';
+} from "./components";
 
 // Styles
-import './styles/globals.css';
-import './styles/ui.css';
-import './styles/sections.css';
+import "./styles/globals.css";
+import "./styles/ui.css";
+import "./styles/sections.css";
 
 function HomePage() {
   const {
@@ -55,7 +56,15 @@ function HomePage() {
       <main id="main-content">
         <Hero onHoverEnter={handleMouseEnter} onHoverLeave={handleMouseLeave} />
 
-        <Expertise onHoverEnter={handleMouseEnter} onHoverLeave={handleMouseLeave} />
+        <Expertise
+          onHoverEnter={handleMouseEnter}
+          onHoverLeave={handleMouseLeave}
+        />
+
+        <Approach
+          onHoverEnter={handleMouseEnter}
+          onHoverLeave={handleMouseLeave}
+        />
 
         <Projects
           onHoverEnter={handleMouseEnter}
@@ -63,9 +72,11 @@ function HomePage() {
           cursorPos={cursorPos}
         />
 
-        <Contact onHoverEnter={handleMouseEnter} onHoverLeave={handleMouseLeave} />
+        <Contact
+          onHoverEnter={handleMouseEnter}
+          onHoverLeave={handleMouseLeave}
+        />
       </main>
-
       {/* Footer */}
       <Footer onHoverEnter={handleMouseEnter} onHoverLeave={handleMouseLeave} />
     </Layout>
