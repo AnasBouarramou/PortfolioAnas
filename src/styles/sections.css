@@ -22,7 +22,6 @@
 
 .hero__title-line {
   display: block;
-  font-size: clamp(2rem, 11vw, 12rem);
   white-space: nowrap;
   margin: 0;
   padding: 0;
@@ -30,7 +29,9 @@
   letter-spacing: -0.02em;
   width: 100%;
   text-overflow: clip;
+  text-align: center;
 }
+
 
 
 .hero__title-line--outline {
