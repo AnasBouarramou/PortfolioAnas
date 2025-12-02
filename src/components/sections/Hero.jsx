@@ -1,12 +1,12 @@
 // ============================================
 // COMPONENTS/SECTIONS/HERO.JSX
-// Section hero avec titre animé
+// Section hero avec titre animé et taille dynamique
 // ============================================
 
 import { memo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../lib/i18n';
-import { useFitText } from '../../hooks';
+import { useFitText } from '../../hooks'; // On garde le hook s'il gère d'autres aspects
 import { icons } from '../ui/Icons';
 
 const titleVariants = {
@@ -37,6 +37,12 @@ const fadeInVariants = {
 export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
   const { t, language } = useLanguage();
   const heroDesc = t('hero_desc');
+  
+  // On récupère les textes ici pour pouvoir calculer leur longueur
+  const line1 = t('hero_1');
+  const line2 = t('hero_2');
+  const line3 = t('hero_3');
+
   const { containerRef, registerElement } = useFitText([language]);
 
   const createRef = useCallback(
@@ -46,10 +52,21 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
     [registerElement]
   );
 
+  // --- FONCTION DE CALCUL DE TAILLE ---
+  // Ajuste "125" si tu veux que le texte soit globalement plus large ou plus étroit
+  const getResponsiveSize = (text) => {
+    if (!text) return '11vw'; // Fallback
+    const charCount = text.length;
+    // Plus le mot est court, plus la police est grande.
+    // On met un max à 25rem pour les très grands écrans.
+    return `clamp(2rem, ${125 / charCount}vw, 25rem)`;
+  };
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="container" ref={containerRef}>
         <h1 id="hero-title" className="hero__title">
+          {/* LIGNE 1 */}
           <motion.span
             ref={createRef}
             className="hero__title-line"
@@ -57,9 +74,12 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
+            style={{ fontSize: getResponsiveSize(line1) }}
           >
-            {t('hero_1')}
+            {line1}
           </motion.span>
+
+          {/* LIGNE 2 (Outline) */}
           <motion.span
             ref={createRef}
             className="hero__title-line hero__title-line--outline"
@@ -67,9 +87,12 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
+            style={{ fontSize: getResponsiveSize(line2) }}
           >
-            {t('hero_2')}
+            {line2}
           </motion.span>
+
+          {/* LIGNE 3 */}
           <motion.span
             ref={createRef}
             className="hero__title-line"
@@ -77,8 +100,9 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
+            style={{ fontSize: getResponsiveSize(line3) }}
           >
-            {t('hero_3')}
+            {line3}
           </motion.span>
         </h1>
 
