@@ -145,6 +145,14 @@
   pointer-events: auto; /* Réactive les clics sur les boutons */
 }
 
+/* === RESPONSIVE HEADER === */
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    mix-blend-mode: normal;
+    padding: var(--space-md) 5vw;
+  }
+}
 /* === LANGUAGE SWITCHER === */
 .lang-switch {
   font-family: var(--font-code);

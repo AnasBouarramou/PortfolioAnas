@@ -1,13 +1,13 @@
 // ============================================
 // COMPONENTS/SECTIONS/HERO.JSX
-// Section hero avec titre animé et taille dynamique
+// Section hero avec titre animé et alignement parfait
 // ============================================
 
-import { memo, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import { useLanguage } from '../../lib/i18n';
-import { useFitText } from '../../hooks'; // On garde le hook s'il gère d'autres aspects
-import { icons } from '../ui/Icons';
+import { memo, useCallback } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "../../lib/i18n";
+import { useFitText } from "../../hooks";
+import { icons } from "../ui/Icons";
 
 const titleVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -36,12 +36,11 @@ const fadeInVariants = {
 
 export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
   const { t, language } = useLanguage();
-  const heroDesc = t('hero_desc');
-  
-  // On récupère les textes ici pour pouvoir calculer leur longueur
-  const line1 = t('hero_1');
-  const line2 = t('hero_2');
-  const line3 = t('hero_3');
+  const heroDesc = t("hero_desc");
+
+  const line1 = t("hero_1");
+  const line2 = t("hero_2");
+  const line3 = t("hero_3");
 
   const { containerRef, registerElement } = useFitText([language]);
 
@@ -51,16 +50,6 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
     },
     [registerElement]
   );
-
-  // --- FONCTION DE CALCUL DE TAILLE ---
-  // Ajuste "125" si tu veux que le texte soit globalement plus large ou plus étroit
-  const getResponsiveSize = (text) => {
-    if (!text) return '11vw'; // Fallback
-    const charCount = text.length;
-    // Plus le mot est court, plus la police est grande.
-    // On met un max à 25rem pour les très grands écrans.
-    return `clamp(2rem, ${125 / charCount}vw, 25rem)`;
-  };
 
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -74,9 +63,8 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
-            style={{ fontSize: getResponsiveSize(line1) }}
           >
-            {line1}
+            <span className="hero__title-text">{line1}</span>
           </motion.span>
 
           {/* LIGNE 2 (Outline) */}
@@ -87,9 +75,8 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
-            style={{ fontSize: getResponsiveSize(line2) }}
           >
-            {line2}
+            <span className="hero__title-text">{line2}</span>
           </motion.span>
 
           {/* LIGNE 3 */}
@@ -100,17 +87,16 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
-            style={{ fontSize: getResponsiveSize(line3) }}
           >
-            {line3}
+            <span className="hero__title-text">{line3}</span>
           </motion.span>
         </h1>
 
         <div className="hero__footer">
           <div>
             <p className="hero__desc">
-              {heroDesc.text} <strong>{heroDesc.highlight1}</strong> {heroDesc.middle}{' '}
-              <strong>{heroDesc.highlight2}</strong>
+              {heroDesc.text} <strong>{heroDesc.highlight1}</strong>{" "}
+              {heroDesc.middle} <strong>{heroDesc.highlight2}</strong>
               {heroDesc.end}
             </p>
 
@@ -120,9 +106,13 @@ export const Hero = memo(function Hero({ onHoverEnter, onHoverLeave }) {
               animate="visible"
               variants={fadeInVariants}
             >
-              <div className="hero__stack-label">{t('stack_label')}</div>
-              <div className="hero__stack-icons" role="list" aria-label="Tech stack">
-                {['react', 'javascript', 'threejs', 'nodejs'].map((icon) => (
+              <div className="hero__stack-label">{t("stack_label")}</div>
+              <div
+                className="hero__stack-icons"
+                role="list"
+                aria-label="Tech stack"
+              >
+                {["react", "javascript", "threejs", "nodejs"].map((icon) => (
                   <span
                     key={icon}
                     className="hero__stack-icon"

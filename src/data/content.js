@@ -27,11 +27,11 @@ export const translations = {
     },
     resume: "Download Resume",
     core_tech: "CORE TECHNOLOGIES",
-    label_projects: "02 / SELECTED WORKS",
+    label_projects: "03 / SELECTED WORKS",
     role_dev: "Development / React",
     role_full: "Fullstack / Next.js",
     role_creat: "Creative / WebGL",
-    label_contact: "03 / CONTACT",
+    label_contact: "04 / CONTACT",
     idea: "Have an idea?",
     talk: "Let's Talk",
     meta: {
@@ -86,11 +86,11 @@ export const translations = {
     },
     resume: "Télécharger CV",
     core_tech: "TECHNOLOGIES CLÉS",
-    label_projects: "02 / PROJETS",
+    label_projects: "03 / PROJETS",
     role_dev: "Développement / React",
     role_full: "Fullstack / Next.js",
     role_creat: "Créatif / WebGL",
-    label_contact: "03 / CONTACT",
+    label_contact: "04 / CONTACT",
     idea: "Vous avez un projet ?",
     talk: "Discutons-en",
     meta: {
@@ -145,8 +145,8 @@ export const projects = [
   },
   {
     id: 3,
-    name: "Test 3",
-    role: "role_creat",
+    name: "Menuisierie site vitrine",
+    role: "role_dev",
     year: "2025",
     image:
       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
@@ -172,6 +172,6 @@ export const socialLinks = [
 export const siteConfig = {
   name: "Anas Bouarramou",
   logo: "ANAS.B",
-  email: "contact@anasbouarramou.com",
-  url: "https://anasb.com",
+  email: "anasbouarramou@gmail.com",
+  url: "https://anasb.dev",
 };

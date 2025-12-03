@@ -12,29 +12,30 @@
 
 .hero__title {
   font-family: var(--font-display);
-  line-height: 0.9;
+  line-height: 0.85;
   font-weight: 800;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
-
 
 .hero__title-line {
   display: block;
-  white-space: nowrap;
+  width: 100%;
   margin: 0;
   padding: 0;
   line-height: 1;
-  letter-spacing: -0.02em;
-  width: 100%;
-  text-overflow: clip;
-  text-align: center;
+  overflow: hidden;
 }
 
+.hero__title-text {
+  display: inline-block;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
-
-.hero__title-line--outline {
+.hero__title-line--outline .hero__title-text {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.7);
 }
@@ -141,6 +142,7 @@
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: var(--space-sm);
 }
+
 /* === PROJECTS === */
 .projects__list {
   border-top: 1px solid var(--border);
@@ -230,6 +232,7 @@
   opacity: 1;
   transform: translate(-50%, -50%) scale(1) rotate(0deg);
 }
+
 /* === CONTACT === */
 .contact {
   border-top: 1px solid var(--border);
@@ -244,8 +247,16 @@
 }
 
 .contact__cta {
+  display: block;
+  width: 100%;
+  margin: var(--space-md) 0;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.contact__cta-text {
+  display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 10vw, 10rem);
   line-height: 1;
   text-transform: uppercase;
   font-weight: 800;
@@ -253,17 +264,59 @@
   -webkit-text-stroke: 2px var(--text-muted);
   transition: color var(--duration-normal),
     -webkit-text-stroke var(--duration-normal);
-  display: inline-block;
-  margin: var(--space-md) 0;
-  text-decoration: none;
-  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
-.contact__cta:hover,
-.contact__cta:focus {
+.contact__cta:hover .contact__cta-text,
+.contact__cta:focus .contact__cta-text {
   color: var(--accent);
   -webkit-text-stroke: 0px;
 }
+
+/* === APPROACH === */
+.approach__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.approach__card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  padding: var(--space-lg);
+  transition: border-color var(--duration-normal),
+    background var(--duration-normal), transform var(--duration-normal);
+}
+
+.approach__card:hover {
+  border-color: var(--accent);
+  background: rgba(204, 255, 0, 0.03);
+  transform: translateY(-5px);
+}
+
+.approach__number {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.approach__card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  color: var(--text-main);
+}
+
+.approach__card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* === RESPONSIVE SECTIONS === */
 @media (max-width: 1100px) {
   .expertise__grid {
@@ -319,6 +372,10 @@
     font-size: clamp(2.5rem, 12vw, 6rem);
     -webkit-text-stroke: 1.5px var(--text-muted);
   }
+
+  .hero__title-line {
+    font-size: clamp(2.5rem, 9vw, 8rem);
+  }
 }
 
 @media (max-width: 600px) {
@@ -331,9 +388,9 @@
     min-height: auto;
     padding-bottom: var(--space-xl);
   }
-  
-   .hero__title-line {
-    font-size: clamp(2.2rem, 13vw, 4rem);
+
+  .hero__title-line {
+    font-size: clamp(2rem, 10vw, 4rem);
   }
 
   .contact__subtitle {
@@ -382,56 +439,12 @@
   .projects__name {
     font-size: 1rem;
   }
-  
+
   .hero__title-line {
-    font-size: clamp(1.8rem, 12vw, 3rem);
+    font-size: clamp(1.6rem, 9vw, 2.5rem);
   }
 
   .expertise__tech-grid {
     gap: 0.75rem;
   }
-}
-
-/* === APPROACH === */
-.approach__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-}
-
-.approach__card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
-  padding: var(--space-lg);
-  transition: border-color var(--duration-normal),
-    background var(--duration-normal), transform var(--duration-normal);
-}
-
-.approach__card:hover {
-  border-color: var(--accent);
-  background: rgba(204, 255, 0, 0.03);
-  transform: translateY(-5px);
-}
-
-.approach__number {
-  font-family: var(--font-code);
-  font-size: 0.75rem;
-  color: var(--accent);
-  display: block;
-  margin-bottom: var(--space-md);
-}
-
-.approach__card-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: var(--space-sm);
-  color: var(--text-main);
-}
-
-.approach__card-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.6;
 }
